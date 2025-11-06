@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-/*GLOBAL STYLES*/
+/*-------------------------------------------------------GLOBAL STYLES--------------------------------------------------------*/
 * {
   box-sizing: border-box;
 }
@@ -127,4 +127,16 @@ footer {
   width: 100%;
   box-sizing: border-box;
   align-items: center;
+}
+
+/*-----------------------------------------PRODUCT PAGE--------------------------------------------*/
+
+/*.product-container {
+  display: flex;
+}*/
+.product {
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
