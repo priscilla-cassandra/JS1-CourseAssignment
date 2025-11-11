@@ -2,15 +2,6 @@ const container = document.getElementById("single-product-container")
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days"
 
 
-async function fetchSingleProduct (){
-    try {
-        
-    } catch (error) {
-        
-    }
-}
-
-
 
 
 
@@ -27,8 +18,15 @@ async function fetchAndCreateProduct(){
         const response = await fetch(`${endpointUrl}/${id}`)
         const data = await response.json()
         const product = data.data
+        console.log(product)
+        console.log("Product detail:", product)
+        console.log("Price:", product.price)
+        console.log("Description:", product.description)
 
+        //Create product div
         const productDiv = document.createElement("div")
+        productDiv.classList.add("product-details")
+
         productDiv.innerHTML = `
   <img src="${product.image.url}" alt="${product.image.alt}">
    <h3>${product.title}</h3>
@@ -42,3 +40,5 @@ async function fetchAndCreateProduct(){
         container.textContent = "Failed to load product"
     }
 }
+
+fetchAndCreateProduct()
