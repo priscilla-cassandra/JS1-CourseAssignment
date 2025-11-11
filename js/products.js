@@ -27,24 +27,29 @@ function displayProducts(products){
         const productItem = document.createElement("div")
         productItem.classList.add("product")
 
-      productItem.innerHTML = `
+        //Create anchor tag for each product
+        const productLink = document.createElement("a")
+        productLink.classList.add("product-link")
+        productLink.href = `single-product.html?id=${product.id}`
+
+        productLink.innerHTML = `
   <img src="${product.image.url}" alt="${product.image.alt}">
    <h3>${product.title}</h3>
   <p>Price: $${product.price}</p>
-`;
-
+`
+        //Create add-to-cart button
         const addToCartButton = document.createElement("button") //Create HTML button element
         addToCartButton.classList.add("add-to-cart-button") //Add a class to the button
         addToCartButton.textContent = "Add to cart" //Set text content
-        console.dir(addToCartButton)
 
-
-productContainer.appendChild(productItem)
-productItem.appendChild(addToCartButton)
+        productItem.appendChild(productLink)
+        productItem.appendChild(addToCartButton)
+        productContainer.appendChild(productItem)
+    
+   
     });
 }
 
-//Add an "add-to-cart" button to each product
 
 fetchAllProducts()
 
