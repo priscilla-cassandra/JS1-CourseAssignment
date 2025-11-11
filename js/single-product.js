@@ -2,9 +2,6 @@ const container = document.getElementById("single-product-container")
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days"
 
 
-
-
-
 async function fetchAndCreateProduct(){
     try {
         const params = new URLSearchParams(window.location.search)
@@ -18,6 +15,7 @@ async function fetchAndCreateProduct(){
         const response = await fetch(`${endpointUrl}/${id}`)
         const data = await response.json()
         const product = data.data
+
         console.log(product)
         console.log("Product detail:", product)
         console.log("Price:", product.price)
@@ -27,14 +25,41 @@ async function fetchAndCreateProduct(){
         const productDiv = document.createElement("div")
         productDiv.classList.add("product-details")
 
-        productDiv.innerHTML = `
-  <img src="${product.image.url}" alt="${product.image.alt}">
-   <h3>${product.title}</h3>
-  <p>Price: $${product.price}</p>
-  <h3>Description</h3>
-  <p>${product.description}</p>
-`
+        //Add image
+        const image = document.createElement("img")
+        image.classList.add("product-image")
+        image.src = product.image.url
+        image.alt = product.image.alt
+        productDiv.appendChild(image)
+
+        //Add product title
+        const title = document.createElement("h2")
+        title.classList.add("product-title")
+        title.textContent = product.title
+        productDiv.appendChild(title)
+
+        //Add product price
+        const price = document.createElement("p")
+        price.classList.add("product-price")
+        price.textContent = `$${product.price}`
+        productDiv.appendChild(price)
+
+        //Add product description
+        const description = document.createElement("p")
+        description.classList.add("product-description")
+        description.textContent = product.description
+        productDiv.appendChild(description)
+
+        //Add back-to-products button
+        const backButton = document.createElement("a")
+        backButton.classList.add("back-button")
+        backButton.textContent = "Back to products"
+        backButton.href = "products.html"
+        productDiv.appendChild(backButton)
+
+        //Add to main container
         container.appendChild(productDiv)
+
     } catch (error) {
         console.error("Failed to fetch products", error)
         container.textContent = "Failed to load product"
