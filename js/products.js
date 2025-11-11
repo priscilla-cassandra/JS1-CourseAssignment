@@ -33,9 +33,18 @@ function displayProducts(products){
   <p>Price: $${product.price}</p>
 `;
 
+        const addToCartButton = document.createElement("button") //Create HTML button element
+        addToCartButton.classList.add("add-to-cart-button") //Add a class to the button
+        addToCartButton.textContent = "Add to cart" //Set text content
+        console.dir(addToCartButton)
+
+
 productContainer.appendChild(productItem)
+productItem.appendChild(addToCartButton)
     });
 }
+
+//Add an "add-to-cart" button to each product
 
 fetchAllProducts()
 
@@ -47,20 +56,20 @@ const dropdownMenu = document.getElementById("gender-filter") //Get dropdown men
 dropdownMenu.addEventListener("change", () => {
     const selectedValue = dropdownMenu.value;
 
-    let filteredProducts;
+    let filteredProducts; //Variable to store filtered value
 
-    if(selectedValue === "all"){
-        filteredProducts = allProducts;
-    } else if (selectedValue === "female"){
+    if(selectedValue === "all"){ //If the selected value is "all"
+        filteredProducts = allProducts; //Display all products
+    } else if (selectedValue === "female"){ //If the selected value is "female"
         filteredProducts = allProducts.filter(product => {
-            return product.gender === "Female"
+            return product.gender === "Female" //Display all products with the key gender, and value "Female"
         })
-    }else if (selectedValue === "male"){
+    }else if (selectedValue === "male"){ //If the selected value is "male"
         filteredProducts = allProducts.filter(product => {
-            return product.gender === "Male"
+            return product.gender === "Male" //Display all products with the gender key and "Male" value
     })
 }
-displayProducts(filteredProducts)
+displayProducts(filteredProducts) //Calling the displayProducts function to display filtered products based on the users choice
 })
 
 
