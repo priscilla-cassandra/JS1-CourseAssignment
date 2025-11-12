@@ -51,9 +51,14 @@ export function loadCart(cartContainer) {
 
   });
 
+  if (cartContent.length === 0){
+    cartContainer.textContent = "Your cart is empty"
+  }
+
   // create a loop if there are any items to render the container/card for the product
   // add a button to delete the cart item and write function to delete product from cart
 }
+
 
 // add a function to remove all items from the cart
  
