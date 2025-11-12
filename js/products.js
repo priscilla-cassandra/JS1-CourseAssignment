@@ -12,6 +12,7 @@ async function fetchAllProducts(){
         allProducts = json.data //Assigning products to the global variable
 
         console.log(allProducts)
+
         displayProducts(allProducts)
     }catch(error){
         console.error("Error fetching products", error)

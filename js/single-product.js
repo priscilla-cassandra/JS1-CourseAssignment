@@ -25,39 +25,45 @@ async function fetchAndCreateProduct(){
         const productDiv = document.createElement("div")
         productDiv.classList.add("product-details")
 
-        //Add image
+        //Create image
         const image = document.createElement("img")
         image.classList.add("product-image")
         image.src = product.image.url
         image.alt = product.image.alt
         productDiv.appendChild(image)
 
-        //Add product title
+        //Create product title
         const title = document.createElement("h2")
         title.classList.add("product-title")
         title.textContent = product.title
         productDiv.appendChild(title)
 
-        //Add product price
+        //Create product price
         const price = document.createElement("p")
         price.classList.add("product-price")
         price.textContent = `$${product.price}`
         productDiv.appendChild(price)
 
-        //Add product description
+        //Create product description
         const description = document.createElement("p")
         description.classList.add("product-description")
         description.textContent = product.description
         productDiv.appendChild(description)
 
-        //Add back-to-products button
+        //Create add-to-cart button
+        const addToCartButton = document.createElement("button")
+        addToCartButton.classList.add("add-to-cart-button")
+        addToCartButton.textContent = "Add to cart"
+        productDiv.appendChild(addToCartButton)
+
+        //Create back-to-products button
         const backButton = document.createElement("a")
         backButton.classList.add("back-button")
         backButton.textContent = "Back to products"
         backButton.href = "products.html"
         productDiv.appendChild(backButton)
 
-        //Add to main container
+        //Append to main container
         container.appendChild(productDiv)
 
     } catch (error) {
