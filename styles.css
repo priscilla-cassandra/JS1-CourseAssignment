@@ -139,3 +139,13 @@ footer {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 20rem;
+}
+
+img {
+  width: 20rem;
+}

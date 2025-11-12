@@ -3,6 +3,7 @@ const endpointUrl = "https://v2.api.noroff.dev/rainy-days"
 //Fetching products from the Noroff API and converting it to JSON data
 
 let allProducts = [] //Variable outside the function, so it can be accessed anywhere in the script
+let cartContent = [] //Variable for contents in the cart
 
 async function fetchAllProducts(){
     try{
@@ -46,12 +47,33 @@ function displayProducts(products){
         productItem.appendChild(productLink)
         productItem.appendChild(addToCartButton)
         productContainer.appendChild(productItem)
-    
-   
+
+         //EventListener click
+        addToCartButton.addEventListener("click", function(){ //When the button is clicked, tun the addToCart function, which adds the product
+            addToCart(product)
+        })
+
+        //Add to cart functionality
+        function addToCart(product){
+            cartContent.push(product) //Push the product to the shopping-cart
+            saveCart ()
+            console.log(`${product.title} added to cart!`)
+        }
+
+        function saveCart(){
+            localStorage.setItem("shoppingCart", JSON.stringify(cartContent)) //"shoppingCart" is the key you want to create. JSON.stringify(cartContent) is the data that is being stored. Here we are storing the cartContent
+        }
+
+        function loadCart(){
+            const savedCart = localStorage.getItem("shoppingCart")
+            if(savedCart){
+                cartContent = JSON.parse(savedCart)
+            }
+        }
     });
 }
 
-
+console.log(cartContent)
 fetchAllProducts()
 
 //Filtering for gender
