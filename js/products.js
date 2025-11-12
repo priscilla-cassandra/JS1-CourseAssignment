@@ -1,3 +1,4 @@
+import { addToCart } from "./cartUtils.js"
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days"
 
 //Fetching products from the Noroff API and converting it to JSON data
@@ -49,27 +50,11 @@ function displayProducts(products){
         productContainer.appendChild(productItem)
 
          //EventListener click
-        addToCartButton.addEventListener("click", function(){ //When the button is clicked, tun the addToCart function, which adds the product
+        addToCartButton.addEventListener("click", function(){ //When the button is clicked, run the addToCart function, which adds the product
             addToCart(product)
         })
 
-        //Add to cart functionality
-        function addToCart(product){
-            cartContent.push(product) //Push the product to the shopping-cart
-            saveCart ()
-            console.log(`${product.title} added to cart!`)
-        }
-
-        function saveCart(){
-            localStorage.setItem("shoppingCart", JSON.stringify(cartContent)) //"shoppingCart" is the key you want to create. JSON.stringify(cartContent) is the data that is being stored. Here we are storing the cartContent
-        }
-
-        function loadCart(){
-            const savedCart = localStorage.getItem("shoppingCart")
-            if(savedCart){
-                cartContent = JSON.parse(savedCart)
-            }
-        }
+        
     });
 }
 

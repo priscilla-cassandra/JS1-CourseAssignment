@@ -1,3 +1,4 @@
+import { addToCart } from "./cartUtils.js"
 const container = document.getElementById("single-product-container")
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days"
 
@@ -55,6 +56,8 @@ async function fetchAndCreateProduct(){
         addToCartButton.classList.add("add-to-cart-button")
         addToCartButton.textContent = "Add to cart"
         productDiv.appendChild(addToCartButton)
+
+        addToCart(product)
 
         //Create back-to-products button
         const backButton = document.createElement("a")
