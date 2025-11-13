@@ -54,9 +54,14 @@ async function fetchAndCreateProduct() {
     const addToCartButton = document.createElement("button");
     addToCartButton.classList.add("add-to-cart-button");
     addToCartButton.textContent = "Add to cart";
+
+    addToCartButton.addEventListener("click", function () {
+      //When the button is clicked, tun the addToCart function, which adds the product
+      addToCart(product);
+    });
     productDiv.appendChild(addToCartButton);
  
-    addToCart(product);
+   // addToCart(product);
  
     //Create back-to-products button
     const backButton = document.createElement("a");
