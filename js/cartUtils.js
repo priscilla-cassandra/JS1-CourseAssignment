@@ -1,6 +1,5 @@
 //Add to cart functionality
 let cartContent = [];
-
 export function addToCart(product) {
   cartContent.push(product); //Push the product to the shopping-cart
   saveCart();
@@ -11,7 +10,7 @@ function saveCart() {
   localStorage.setItem("shoppingCart", JSON.stringify(cartContent)); //"shoppingCart" is the key you want to create. JSON.stringify(cartContent) is the data that is being stored. Here we are storing the cartContent
 }
 
-export function loadCart(cartContainer) {
+export function loadCart() {
   // retrieve items from local storage
   const savedCart = localStorage.getItem("shoppingCart");
   if (savedCart) {
