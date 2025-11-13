@@ -2,6 +2,12 @@
 export let cartContent = [];
 
 export function addToCart(product) {
+  const savedCart = localStorage.getItem("shoppingCart"); //loads current cart from localStorage before pushing new product to the cart
+  if (savedCart) {
+    cartContent = JSON.parse(savedCart);
+  } else {
+    cartContent = [];
+  }
   cartContent.push(product); //Push the product to the shopping-cart
   saveCart();
   console.log(`${product.title} added to cart!`);
@@ -107,7 +113,7 @@ export function loadCart(cartContainer) {
 // add a function to remove all items from the cart
  
 
-//////////Cart summary//////// Created by reusing much of thecode from the loadCart function
+//////////Cart summary//////// Created by reusing much of the code from the loadCart function
 
 export function cartSummary(cartContainer){
 
