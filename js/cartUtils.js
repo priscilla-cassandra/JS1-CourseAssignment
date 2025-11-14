@@ -116,6 +116,7 @@ export function loadCart(cartContainer) {
 
 export function cartSummary(cartContainer){
 
+  const checkoutForm = document.getElementById("checkout-form")
   const savedCart = localStorage.getItem("shoppingCart");
   if (savedCart) {
     cartContent = JSON.parse(savedCart);
@@ -127,7 +128,15 @@ export function cartSummary(cartContainer){
 
   if (cartContent.length === 0){
     cartContainer.textContent = "Your cart is empty"
+    if (checkoutForm){
+    checkoutForm.style.display = "none"
+  }
     return
+  }
+
+
+  if(checkoutForm){
+    checkoutForm.style.display = "block"
   }
 
   const groupedCart = [];

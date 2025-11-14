@@ -34,15 +34,16 @@
       <h1>Checkout</h1>
       <div class="cart-summary-container" id="cart-summary-container"></div>
 
-      <form id="checkout-form" class="checkout-form">
+      <form id="checkout-form" action="confirmation.html" class="checkout-form">
         <label for="name">Full name</label>
-        <input type="text" />
+        <input type="text" required />
         <label for="email">Email</label>
-        <input type="email" />
+        <input type="email" required />
         <label for="adress">Adress</label>
-        <input type="text" />
+        <input type="text" required />
         <label for="card-number">Card number</label>
-        <input type="number" />
+        <input type="number" required />
+        <input type="submit" value="Place order" id="order-button" />
       </form>
       <div id="order-button" class="order-button"></div>
     </main>

@@ -2,9 +2,11 @@ import { addToCart } from "./cartUtils.js";
 import { updateCartCount } from "./cartUtils.js";
 const container = document.getElementById("single-product-container");
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days";
+const loadingIndicator = document.getElementById("loading-container")
  
 async function fetchAndCreateProduct() {
-  try {
+    loadingIndicator.style.display = "block" //Show loading indicator before the asynchronous function runs
+    try {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
  
@@ -69,6 +71,8 @@ async function fetchAndCreateProduct() {
   } catch (error) {
     console.error("Failed to fetch products", error);
     container.textContent = "Failed to load product";
+  } finally{
+    loadingIndicator.style.display = "none" //Hide the loading indicator when the asynch function is done
   }
 }
  

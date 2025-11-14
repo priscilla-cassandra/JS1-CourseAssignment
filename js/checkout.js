@@ -16,6 +16,7 @@ placeOrderButton.addEventListener("click", function(){
     window.location.href="confirmation.html"
 })
 
+
 document.addEventListener("DOMContentLoaded", () =>{
     updateCartCount()
 })

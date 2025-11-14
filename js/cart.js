@@ -27,7 +27,7 @@ function checkoutButtonVisibility(){
 }
 }
 
-checkoutButtonVisibility()
+checkoutButtonVisibility(cartContent)
 
 document.addEventListener("DOMContentLoaded", () =>{
     updateCartCount()
