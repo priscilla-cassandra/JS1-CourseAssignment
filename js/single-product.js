@@ -17,11 +17,6 @@ async function fetchAndCreateProduct() {
     const data = await response.json();
     const product = data.data;
  
-    console.log(product);
-    console.log("Product detail:", product);
-    console.log("Price:", product.price);
-    console.log("Description:", product.description);
- 
     //Create product div
     const productDiv = document.createElement("div");
     productDiv.classList.add("product-details");
@@ -57,12 +52,10 @@ async function fetchAndCreateProduct() {
     addToCartButton.textContent = "Add to cart";
 
     addToCartButton.addEventListener("click", function () {
-      //When the button is clicked, tun the addToCart function, which adds the product
+      //When the button is clicked, run the addToCart function, which adds the product
       addToCart(product);
     });
     productDiv.appendChild(addToCartButton);
- 
-   // addToCart(product);
  
     //Create back-to-products button
     const backButton = document.createElement("a");

@@ -79,7 +79,7 @@ export function loadCart(cartContainer) {
 
     // Quantity
     const quantity = document.createElement("p");
-    quantity.classList.add("product-quantity"); // add this class in CSS if you want
+    quantity.classList.add("product-quantity");
     quantity.textContent = `Quantity: ${product.quantity}`;
     cartItem.appendChild(quantity);
 
@@ -110,8 +110,6 @@ export function loadCart(cartContainer) {
   totalElement.textContent = `Total items in cart: ${totalItems}`;
   cartContainer.appendChild(totalElement);
 }
-
-// add a function to remove all items from the cart
  
 
 //////////Cart summary//////// Created by reusing much of the code from the loadCart function

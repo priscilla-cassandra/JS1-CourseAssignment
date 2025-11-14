@@ -11,7 +11,7 @@ let cartContent = []; //Variable for contents in the cart
 
 async function fetchAllProducts() {
   
-    loadingIndicator.style.display = "block" //Show loading indicator before the asynchronous function runds
+    loadingIndicator.style.display = "block" //Show loading indicator before the asynchronous function runs
     try {
     const response = await fetch(endpointUrl);
     const json = await response.json();
@@ -48,9 +48,9 @@ function displayProducts(products) {
   <p>Price: $${product.price}</p>
 `;
     //Create add-to-cart button
-    const addToCartButton = document.createElement("button"); //Create HTML button element
-    addToCartButton.classList.add("add-to-cart-button"); //Add a class to the button
-    addToCartButton.textContent = "Add to cart"; //Set text content
+    const addToCartButton = document.createElement("button");
+    addToCartButton.classList.add("add-to-cart-button"); 
+    addToCartButton.textContent = "Add to cart"; 
 
     productItem.appendChild(productLink);
     productItem.appendChild(addToCartButton);
