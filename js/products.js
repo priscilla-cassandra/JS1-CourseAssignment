@@ -1,13 +1,16 @@
 import { addToCart } from "./cartUtils.js";
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days";
+const loadingIndicator = document.getElementById("loading-container")
 
 //Fetching products from the Noroff API and converting it to JSON data
 
 let allProducts = []; //Variable outside the function, so it can be accessed anywhere in the script
-let cartContent = []; //Variable for conåtents in the cart
+let cartContent = []; //Variable for contents in the cart
 
 async function fetchAllProducts() {
-  try {
+  
+    loadingIndicator.style.display = "block" //Show loading indicator before the asynchronous function runds
+    try {
     const response = await fetch(endpointUrl);
     const json = await response.json();
 
@@ -18,6 +21,8 @@ async function fetchAllProducts() {
     displayProducts(allProducts);
   } catch (error) {
     console.error("Error fetching products", error);
+  } finally{
+    loadingIndicator.style.display = "none" //Hide the loading indicator when the asynch function is done
   }
 }
 
@@ -51,7 +56,7 @@ function displayProducts(products) {
 
     //EventListener click
     addToCartButton.addEventListener("click", function () {
-      //When the button is clicked, tun the addToCart function, which adds the product
+      //When the button is clicked, run the addToCart function, which adds the product
       addToCart(product);
     });
   });
