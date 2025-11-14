@@ -1,4 +1,5 @@
 import { addToCart } from "./cartUtils.js";
+import { updateCartCount } from "./cartUtils.js";
 const container = document.getElementById("single-product-container");
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days";
  
@@ -79,3 +80,7 @@ async function fetchAndCreateProduct() {
 }
  
 fetchAndCreateProduct();
+
+document.addEventListener("DOMContentLoaded", () =>{
+    updateCartCount()
+})

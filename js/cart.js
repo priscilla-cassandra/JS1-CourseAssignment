@@ -1,4 +1,5 @@
 import { loadCart, cartContent } from "./cartUtils.js"
+import { updateCartCount } from "./cartUtils.js"
 
 const cartContainer = document.getElementById("cart-container")
 const checkoutButton = document.getElementById("checkout")
@@ -29,3 +30,7 @@ function checkoutButtonVisibility(){
 }
 
 checkoutButtonVisibility()
+
+document.addEventListener("DOMContentLoaded", () =>{
+    updateCartCount()
+})

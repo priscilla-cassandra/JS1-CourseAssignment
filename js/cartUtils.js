@@ -10,6 +10,7 @@ export function addToCart(product) {
   }
   cartContent.push(product); //Push the product to the shopping-cart
   saveCart();
+  updateCartCount();
   console.log(`${product.title} added to cart!`);
 }
 
@@ -186,4 +187,21 @@ const priceTotal = document.createElement("p")
   priceTotal.textContent = `Total (${totalItems} items): $${totalPrice.toFixed(2)}`
   cartContainer.appendChild(priceTotal)
 
+}
+
+
+/////////////UPDATE CART COUNT ON CART ICON////////////////
+
+export function updateCartCount (){
+
+  console.log("The updateCartCount function is running!")
+  const cartCountIcon = document.getElementById("cart-count") //Get access to the cart icon
+
+  const savedCart = localStorage.getItem("shoppingCart") //Gets the saved cart from local storage (!!!AS A STRING)
+
+  const cart = savedCart ? JSON.parse(savedCart) : [] //This line converts the string in to an actual array. [] = use empty array if cart is empty
+
+  const totalItems = cart.length //The number of items is the same as the length of the array that is currently saved
+
+  cartCountIcon.textContent = totalItems //The text content (counter) on the cartIcon is changed to number of totalItems in the cart
 }

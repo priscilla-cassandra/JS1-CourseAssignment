@@ -1,4 +1,5 @@
 import { cartSummary } from "./cartUtils.js";
+import { updateCartCount } from "./cartUtils.js";
 
 const cartContainer = document.getElementById("cart-summary-container")
 
@@ -15,4 +16,7 @@ placeOrderButton.addEventListener("click", function(){
     window.location.href="confirmation.html"
 })
 
+document.addEventListener("DOMContentLoaded", () =>{
+    updateCartCount()
+})
 

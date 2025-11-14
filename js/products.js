@@ -1,4 +1,6 @@
 import { addToCart } from "./cartUtils.js";
+import { updateCartCount } from "./cartUtils.js";
+
 const endpointUrl = "https://v2.api.noroff.dev/rainy-days";
 const loadingIndicator = document.getElementById("loading-container")
 
@@ -92,6 +94,9 @@ dropdownMenu.addEventListener("change", () => {
   displayProducts(filteredProducts); //Calling the displayProducts function to display filtered products based on the users choice
 });
  
+document.addEventListener("DOMContentLoaded", () =>{
+    updateCartCount()
+})
 
 
 
