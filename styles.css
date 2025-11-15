@@ -166,6 +166,13 @@ img {
   text-align: center;
 }
 
+.add-to-cart-button {
+  color: white;
+  background-color: black;
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+}
+
 /*-----------------------------------------CONFIRMATION PAGE--------------------------------------------*/
 
 .thank-you,
